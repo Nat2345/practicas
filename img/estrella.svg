@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <polygon
+    points="100,10 123,73 190,73 136,114 156,180 100,140 44,180 64,114 10,73 77,73"
+    fill="gold"
+    stroke="orange"
+    stroke-width="2"
+    stroke-linejoin="round"
+  />
+</svg>
