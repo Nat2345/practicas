@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css">
     <title>MI PRIMERA VEZ CON JAVA SCRIPT</title>
 </head>
@@ -11,191 +11,24 @@
 
 <nav class="navbar fg-2 bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="index.html">
       <img src="img/cecyto.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-      Practica 1 JavaScript
+       MENU
     </a>
   </div>
 </nav>
 
 <div class="container p-4">
-    <div class="row">
-        <div class="col">
-        <button class="btn-solid theme-danger my-3" onclick="mensaje1()"><i class="bi bi-trash3-fill"></i>Eliminar</button>
-        <button class="btn-text theme-warning my-3" onclick="mensaje2()"><i class="bi bi-github"></i></i>Github</button>
-        <button class="btn-subtle theme-primary my-3" onclick="mensaje3()"><i class="bi bi-image"></i>Imagen</button>
-        <button class="btn-text theme-inverse my-3" onclick="mensaje4()"><i class="bi bi-xbox"></i></i>Videojuego</button>
-        <button class="btn-text theme-info my-3" onclick="mensaje5()"><i class="bi bi-exclamation-circle-fill"></i></i>Alerta</button>
+   <a class="btn-solid theme-danger my-3"  href="01practica.html" onclick="mensaje1()">PRACTICA 1</a>
+        <a class="btn-solid theme-danger my-3"  href="02practica.html" onclick="mensaje1()">PRACTICA 2</a>
+        
         </div>
     
-        <div class="col">
-        <button class="btn-solid theme-secondary my-3" onclick="mensaje6()"><i class="bi bi-check-circle"></i>Salvar</button>
-        <button class="btn-text theme-success my-3" onclick="mensaje7()"><i class="bi bi-wifi"></i>Wifi</button>
-        <button class="btn-subtle theme-accent my-3" onclick="mensaje8()"><i class="bi bi-exclamation-triangle"></i>Alerta</button>
-        <button class="btn-text theme-primary my-3" onclick="mensaje9()"><i class="bi bi-box-arrow-in-down"></i>Guardar</button>
-        <button class="btn-autoline theme-inverse my-3" onclick="mensaje10()"><i class="bi bi-x-square"></i>Error</button>
-    </div>
-</div>
+        
 
-   <script src="bootstrap.bundle.min.js"></script>
-   <script src="sweetalert2.all.min.js"></script>
+   <script src="js/bootstrap.bundle.min.js"></script>
+   <script src="js/sweetalert2.all.min.js"></script>
 
-   <script>
-    function mensaje1(){
-     Swal.fire({
-  title: "Muy bien",
-  text: "Esto ha sido eliminado correctamente!",
-  icon: "success"
-});
-    }
-   </script>
-
-
-   <script>
-    function mensaje2(){
-     Swal.fire({
-  title: "Envia tu usuario de github",
-  input: "text",
-  inputAttributes: { autocapitalize: "off" },
-  showCancelButton: true,
-  confirmButtonText: "Enviar",
-  showLoaderOnConfirm: true,
-  preConfirm: async (login) => {
-    try {
-      const githubUrl = `
-        https://api.github.com/users/${login}
-      `;
-      const response = await fetch(githubUrl);
-      if (!response.ok) return Swal.showValidationMessage(`
-          ${JSON.stringify(await response.json())}
-        `);
-      return response.json();
-    } catch (error) {
-      Swal.showValidationMessage(`
-        Request failed: ${error}
-      `);
-    }
-  },
-  allowOutsideClick: () => !Swal.isLoading()
-}).then((result) => {
-  if (result.isConfirmed) Swal.fire({
-    title: `${result.value.login}'s avatar`,
-    imageUrl: result.value.avatar_url
-  });
-});
-    }
-   </script>
-<script>
-    function mensaje3(){
-        Swal.fire({
-            imageUrl: "img/estrella.svg",
-            imageWidth: 200,
-            imageHeight: 200,
-            imageAlt: "Estrella amarilla"
-        });
-    }
-</script>
-
-<script>
-    function mensaje4(){
-    Swal.fire({
-  title: "Genial!",
-  text: "Este es el videojuego de minecraft",
-  imageUrl: "img/mine.jpg",
-  imageWidth: 400,
-  imageHeight: 200,
-  imageAlt: "Custom image"
-});
-    }
-   </script>
-
-   <script>
-    function mensaje5(){
-    const swalWithBootstrapButtons = Swal.mixin({
-  customClass: {
-    confirmButton: "btn btn-success",
-    cancelButton: "btn btn-danger"
-  },
-  buttonsStyling: false
-});
-swalWithBootstrapButtons.fire({
-  title: "Estas seguro?",
-  text: "No podras revertir esto",
-  icon: "warning",
-  showCancelButton: true,
-  confirmButtonText: "Si, eliminalo",
-  cancelButtonText: "Cancelar!",
-  reverseButtons: true
-}).then((result) => {
-  if (result.isConfirmed) swalWithBootstrapButtons.fire({
-    title: "Eliminado!",
-    text: "Tu archivo esta eliminado",
-    icon: "vale"
-  });
-  else if (result.dismiss === Swal.DismissReason.cancel)
- /* Read more about handling dismissals below */
-  swalWithBootstrapButtons.fire({
-    title: "Cancelar",
-    text: "no se elimino :)",
-    icon: "error"
-  });
-});
-    }
-   </script>
-
-   <script>
-    function mensaje6(){
-     Swal.fire({
-  position: "top-end",
-  icon: "success",
-  title: "Tu trabajo ha sido salvado",
-  showConfirmButton: false,
-  timer: 1500
-});
-    }
-   </script>
-
-   <script>
-    function mensaje7(){
-     Swal.fire({
-    title: "¿Internet?",
-  text: "¿Esa cosa todavía está ahí?",
-  icon: "question"
-});
-    }
-   </script>
-
-   <script>
-    function mensaje8(){
-     Swal.fire("SweetAlert esta en fucionamiento");
-    }
-   </script>
-
-   <script>
-    function mensaje9(){
-     Swal.fire({
-  title: " Quieres guardar los cambios?",
-  showDenyButton: true,
-  showCancelButton: true,
-  confirmButtonText: "Guardar",
-  denyButtonText: `No guardar`
-}).then((result) => {
-  /* Read more about isConfirmed, isDenied below */
-  if (result.isConfirmed) Swal.fire("Guardado!", "", "success");
-  else if (result.isDenied) Swal.fire("Los cambios no se guardaron", "", "info");
-});
-    }
-   </script>
-
-   <script>
-    function mensaje10(){
-     Swal.fire({
-  icon: "error",
-  title: "Oops...",
-  text: "Algo salio mal!",
-  footer: "<a href=\"#\">Por que tengo este problema?</a>"
-});
-    }
-   </script>
+   
 </body>
 </html>
